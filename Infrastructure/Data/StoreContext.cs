@@ -24,5 +24,7 @@ public class StoreContext (DbContextOptions options):DbContext(options)
         configurationBuilder.Properties<DateTime>().HaveColumnType("Date");
         configurationBuilder.Properties<Enum>().HaveMaxLength(200);
 
+
+
     }
 }

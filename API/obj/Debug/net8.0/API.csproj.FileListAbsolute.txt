@@ -141,3 +141,7 @@ C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\obj\Debug\net8.0\API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\appsettings.json
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\API.exe
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\obj\Debug\net8.0\API.sourcelink.json
