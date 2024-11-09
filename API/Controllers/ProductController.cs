@@ -3,12 +3,13 @@ using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
 using Infrastructure.Data;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace API.Controllers;
 
-public class ProductsController: BaseApiController
+public partial class ProductsController: BaseApiController
 {
 
     private readonly ILogger<ProductsController> _logger;
@@ -29,9 +30,10 @@ public class ProductsController: BaseApiController
         ProductSpecification spec =new ProductSpecification(specParams) ;
 
         
-        return Ok (await CreatePagedResult(repo,
-            spec, specParams.PageIndex, specParams.PageSize));
+       var result =await CreatePagedResult(repo,
+            spec, specParams.PageIndex, specParams.PageSize);
 
+        return result ;
     }
 
     [HttpGet("{id:int}")]
@@ -115,6 +117,5 @@ public class ProductsController: BaseApiController
     {
         return repo.Exists(id);
     }
-
 
 }
