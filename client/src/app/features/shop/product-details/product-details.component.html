@@ -1,0 +1,58 @@
+@if(product){
+
+  <section class="product-details-section py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Product Image -->
+        <div class="product-image-container">
+          <img class="product-image" src="{{product.pictureUrl}}" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-info">
+          <h1 class="product-title">{{product.name}}</h1>
+          <h6>You have {{quantityInCart}} of this item in your cart</h6>
+          <p class="product-brand">Brand: <span>{{product.brand}}</span></p>
+          <p class="product-type">Type: <span>{{product.type}}</span></p>
+          <div class="price-stock mt-4">
+            <p class="product-price">{{product.price | currency}}</p>
+            <p *ngIf="product.quantityInStock === 0" class="out-of-stock">Out of Stock</p>
+            <p *ngIf="product.quantityInStock < 5 && product.quantityInStock > 0" class="low-stock">Low Stock</p>
+          </div>
+
+          <div class="actions mt-6 flex gap-4">
+            <button
+            mat-flat-button
+            class="add-to-cart"
+             (click)="updateCart()"
+             [disabled]="quantity===quantityInCart">
+              <mat-icon>shopping_cart</mat-icon> {{getButtonText()}}
+            </button>
+
+            <div class="quantity-input-container">
+              <label for="quantity" class="quantity-label">Quantity</label>
+              <input
+                id="quantity"
+                class="quantity-input"
+                type="number"
+                min="0"
+                [max]="product.quantityInStock"
+                value="1"
+                maxlength="2"
+                [(ngModel)]="quantity"
+              />
+
+            </div>
+          </div>
+
+          <mat-divider class="mt-6"></mat-divider>
+
+          <p class="product-description">{{product.description}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+}

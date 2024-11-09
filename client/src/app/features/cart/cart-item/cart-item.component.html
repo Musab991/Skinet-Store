@@ -1,0 +1,38 @@
+
+<div class="cart-item border border-gray-200 bg-white p-4 shadow-sm rounded-lg mb-4 flex items-start gap-6">
+  <!-- Product Image -->
+  <a [routerLink]="['/shop', item().productId]" class="shrink-0">
+    <img [src]="item().pictureUrl" alt="{{item().productName}}" class="h-20 w-20 object-cover">
+  </a>
+
+  <!-- Product Info and Actions -->
+  <div class="flex-1 space-y-2">
+    <!-- Product Title -->
+    <a [routerLink]="['/shop', item().productId]" class="text-lg font-semibold hover:underline">
+      {{item().productName}}
+    </a>
+
+    <!-- Quantity and Price Actions -->
+    <div class="flex items-center gap-4">
+
+      <button mat-icon-button (click)="decrementQuantity()">
+        <mat-icon class="text-red-600">remove</mat-icon>
+      </button>
+
+      <span class="text-xl font-medium">{{item().quantity}}</span>
+
+      <button mat-icon-button (click)="addToCart()">
+        <mat-icon class="text-green-600">add</mat-icon>
+      </button>
+
+    </div>
+
+    <!-- Price -->
+    <p class="text-right font-bold text-lg">{{item().price | currency}}</p>
+  </div>
+
+  <!-- Remove Button -->
+  <button mat-button color="warn" (click)="deleteItem()">
+    <mat-icon>delete</mat-icon> Delete
+  </button>
+</div>

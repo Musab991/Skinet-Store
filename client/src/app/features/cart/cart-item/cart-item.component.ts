@@ -1,0 +1,34 @@
+import { Component, input, inject, computed, effect } from '@angular/core';
+import { CartItem } from '../../../models/cart';
+import { RouterLink } from '@angular/router';
+import { MatButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { CurrencyPipe } from '@angular/common';
+import { CartService } from '../../../core/services/cart.service';
+
+@Component({
+  selector: 'app-cart-item',
+  standalone: true,
+  imports: [RouterLink, MatButton, MatIcon, CurrencyPipe],
+  templateUrl: './cart-item.component.html',
+  styleUrl: './cart-item.component.scss',
+})
+export class CartItemComponent {
+  cartService = inject(CartService);
+
+  deleteItem() {
+    this.cartService.removeItemFromCart(
+      this.item().productId,
+      this.item().quantity
+    );
+  }
+
+  addToCart() {
+    this.cartService.addItemToCart(this.item());
+  }
+
+  decrementQuantity() {
+    this.cartService.removeItemFromCart(this.item().productId);
+  }
+  item = input.required<CartItem>(); //InputSignal<CartItem>
+}

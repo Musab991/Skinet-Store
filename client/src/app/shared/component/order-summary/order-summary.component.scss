@@ -1,0 +1,22 @@
+.voucher-input .mat-form-field-wrapper {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 8px;
+  transition: border-color 0.3s ease;
+}
+
+.voucher-input .mat-form-field-wrapper:hover {
+  border-color: #888;
+}
+
+.voucher-input .mat-form-field-wrapper:focus-within {
+  border-color: #3f51b5; /* Primary color */
+}
+
+.voucher-input .mat-form-field-flex {
+  padding-top: 8px;
+}
+
+.voucher-input .mat-form-field-infix {
+  padding: 4px 0;
+}

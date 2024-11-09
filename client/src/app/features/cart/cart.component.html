@@ -1,0 +1,18 @@
+<section class="container mx-auto max-w-screen-xl my-10">
+  <div class="flex flex-col lg:flex-row gap-8">
+    <!-- Cart Items List -->
+    <div class="flex-1">
+      <ng-container>
+        @for (item of cartService.cart()?.items; track item.productId) {
+
+          <app-cart-item [item]="item"></app-cart-item>
+        }
+      </ng-container>
+    </div>
+
+    <!-- Order Summary -->
+    <div class="w-full lg:w-1/4">
+      <app-order-summary></app-order-summary>
+    </div>
+  </div>
+</section>

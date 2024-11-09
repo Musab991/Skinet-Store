@@ -1,0 +1,50 @@
+<!-- Order Summary Card -->
+<div class="order-summary bg-white border border-gray-200 shadow-sm p-6 rounded-lg space-y-6">
+  <h2 class="text-xl font-semibold">Order Summary</h2>
+
+  <!-- Summary Details -->
+  <div class="space-y-2">
+    <div class="flex justify-between">
+      <span class="text-gray-500">Subtotal</span>
+      <span class="font-medium">{{(cartService.totals()?.subtotal ?? 0)| currency}}</span>
+    </div>
+    <div class="flex justify-between">
+      <span class="text-gray-500">Discount</span>
+      <span class="font-medium">{{cartService.totals()?.discount??0 | currency}}</span>
+    </div>
+    <div class="flex justify-between">
+      <span class="text-gray-500">Delivery Fee</span>
+      <span class="font-medium">{{cartService.totals()?.shipping ??0| currency}}</span>
+    </div>
+    <div class="flex justify-between border-t pt-4">
+      <span class="text-gray-500 font-semibold">Total</span>
+      <span class="font-bold text-xl">{{cartService.totals()?.total??0 | currency}}</span>
+    </div>
+  </div>
+
+  <!-- Checkout and Continue Shopping Buttons -->
+  <div class="flex flex-col gap-2 border-t pt-4">
+    <button routerLink="/checkout" mat-flat-button color="primary" class="w-full">
+      Checkout
+    </button>
+    <button routerLink="/shop" mat-flat-button color="accent" class="w-full">
+      Continue Shopping
+    </button>
+  </div>
+</div>
+
+<!-- Voucher Code Section as a Separate Card -->
+<div class="voucher-card space-y-4 mt-6 bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+  <form class="space-y-3">
+    <label class="block text-sm font-medium text-gray-700">
+      Do you have a voucher code?
+    </label>
+    <mat-form-field class="voucher-input w-full">
+      <mat-label>Voucher Code</mat-label>
+      <input type="text" matInput placeholder="Enter your code">
+    </mat-form-field>
+    <button mat-flat-button color="primary" class="w-full">
+      Apply Code
+    </button>
+  </form>
+</div>
