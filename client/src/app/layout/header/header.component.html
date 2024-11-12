@@ -1,33 +1,57 @@
-<header class="border-b shadow-md p-3 w-full max-h-20 fixed top-0 z-50 bg-white">
-  <div class="flex align-middle items-center justify-between max-w-screen-2xl mx-auto">
-    <img routerLink="/" src="/images/logo.png" alt="app logo" class="max-h-16">
-    <nav class="flex gap-3 my-2 uppercase text-2xl">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
-      <a routerLink="/shop" routerLinkActive="active">Shop</a>
-      <a routerLink="/test-error" routerLinkActive="active">Errors</a>
+<header class="header border-b shadow-lg p-4 w-full fixed top-0 z-50 bg-white">
+  <div class="header-container flex items-center justify-between max-w-screen-2xl mx-auto">
+    <!-- Logo -->
+    <img routerLink="/" src="/images/logo.png" alt="app logo"
+      class="logo h-16 transition-transform duration-200 hover:scale-105">
+
+    <!-- Navigation Links -->
+    <nav class="nav flex gap-6 uppercase text-lg">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-link">Home</a>
+      <a routerLink="/shop" routerLinkActive="active" class="nav-link">Shop</a>
+      <a routerLink="/test-error" routerLinkActive="active" class="nav-link">Errors</a>
     </nav>
 
-    <div class="flex gap-3 align-middle">
-      <a routerLink="/cart"
-      routerLinkActive="active"
-      matBadge="{{ cartService.itemCount() || 0 }}"
-      matBadgeSize="large"
-      class="custom-badge mt-2 mr-2">
-      <mat-icon>shopping_cart</mat-icon>
-    </a>
-      <!-- Fallback when itemCount is zero -->
-      <ng-template #noBadge>
-        <a routerLink="/cart" routerLinkActive="active" class="mt-2 mr-2">
-          <mat-icon>shopping_cart</mat-icon>
-        </a>
-      </ng-template>
+    <!-- User and Cart Actions -->
+    <div class="actions flex items-center gap-4">
+      <!-- Cart with Badge -->
+      <a routerLink="/cart" routerLinkActive="active" matBadge="{{ cartService.itemCount() || 0 }}"
+        matBadgeSize="medium" matBadgeColor="primary" class="cart-icon">
+        <mat-icon>shopping_cart</mat-icon>
+      </a>
 
-      <button mat-stroked-button>Login</button>
-      <button mat-stroked-button>Register</button>
+      <!-- User Menu Trigger -->
+      <button mat-button [matMenuTriggerFor]="menu" *ngIf="accountService?.currentUser()"
+        class="user-btn flex items-center">
+        <mat-icon>arrow_drop_down</mat-icon>
+        <span>{{ accountService.currentUser()?.email }}</span>
+      </button>
+
+      <!-- Login and Register Buttons -->
+      <ng-container *ngIf="!accountService?.currentUser()">
+        <button mat-stroked-button routerLink="/account/login" class="auth-btn">Login</button>
+        <button mat-stroked-button routerLink="/account/register" class="auth-btn">Register</button>
+      </ng-container>
     </div>
   </div>
+
+  <!-- Loading Progress Bar -->
+  <mat-progress-bar *ngIf="busyService.loading" mode="indeterminate"
+    class="progress-bar fixed top-20 z-50"></mat-progress-bar>
 </header>
 
-@if(busyService.loading) {
-  <mat-progress-bar mode="indeterminate" class="fixed top-20 z-50"></mat-progress-bar>
-}
+<!-- User Menu -->
+<mat-menu #menu="matMenu" class="user-menu">
+  <button mat-menu-item routerLink="/cart" class="menu-item">
+    <mat-icon>shopping_cart</mat-icon>
+    My Cart
+  </button>
+  <button mat-menu-item routerLink="/orders" class="menu-item">
+    <mat-icon>history</mat-icon>
+    My Orders
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item (click)="logout()" class="menu-item">
+    <mat-icon>logout</mat-icon>
+    Logout
+  </button>
+</mat-menu>
