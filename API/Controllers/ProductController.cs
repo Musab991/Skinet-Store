@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
-public partial class ProductsController: BaseApiController
+public  class ProductsController: BaseApiController
 {
 
     private readonly ILogger<ProductsController> _logger;

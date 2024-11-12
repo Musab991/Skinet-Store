@@ -1,4 +1,5 @@
 using API.Middleware;
+using Core.Entities;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Services;
@@ -37,6 +38,12 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(config =>
     return ConnectionMultiplexer.Connect(configuration);
 });
 builder.Services.AddSingleton<ICartService, CartService>();
+builder.Services.AddAuthorization();
+builder.Services.AddIdentityApiEndpoints<AppUser>()
+    .AddEntityFrameworkStores<StoreContext>();
+
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+
 
 var app = builder.Build();
 
@@ -48,7 +55,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 #region CORS
 
 //order is important ...(app<<--->mapcontrollers)
-app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod()
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowCredentials()
 .WithOrigins("http://localhost:4200", "https://localhost:4200"));
 
 #endregion
@@ -61,6 +68,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapControllers();
+app.MapGroup("api").MapIdentityApi<AppUser>();//api/login(register)//
+
 
 #region Seed Data
 try
