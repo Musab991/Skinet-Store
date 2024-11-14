@@ -1,0 +1,44 @@
+<section class="bg-white py-16">
+  <div class="mx-auto max-w-2xl px-4">
+    <!-- Header Section -->
+    <h2 class="text-3xl font-semibold text-gray-900 mb-4">Thank you for your order!</h2>
+    <p class="text-lg text-gray-600 mb-8">
+      Your order <span class="font-medium text-gray-900">#42</span> will never be processed as this is a fake shop. We
+      will not notify you once your order has been processed.
+    </p>
+  </div>
+
+  <!-- Order Summary Section -->
+  <div class="rounded-lg border border-gray-100 bg-gray-50 p-6 mb-8 space-y-6">
+    <div class="flex justify-between items-center">
+      <dt class="text-sm font-medium text-gray-500">Date</dt>
+      <dd class="text-sm font-semibold text-gray-900">20 Sep 2024</dd>
+    </div>
+    <div class="flex justify-between items-center">
+      <dt class="text-sm font-medium text-gray-500">Payment method</dt>
+      <dd class="text-sm font-semibold text-gray-900">Visa</dd>
+    </div>
+    <div class="flex justify-between items-center">
+      <dt class="text-sm font-medium text-gray-500">Shipping Address</dt>
+      <dd class="text-sm font-semibold text-gray-900">Address goes here</dd>
+    </div>
+    <div class="flex justify-between items-center">
+      <dt class="text-sm font-medium text-gray-500">Amount</dt>
+      <dd class="text-sm font-semibold text-gray-900">$100</dd>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex space-x-4 justify-center mt-6">
+      <button routerLink="/orders/42" mat-flat-button
+        class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+        aria-label="View order details for order #42">
+        View Your Order
+      </button>
+      <button routerLink="/shop" mat-stroked-button
+        class="px-6 py-2 text-blue-600 border-blue-600 rounded-md hover:bg-blue-50 transition"
+        aria-label="Continue shopping">
+        Continue Shopping
+      </button>
+    </div>
+  </div>
+</section>

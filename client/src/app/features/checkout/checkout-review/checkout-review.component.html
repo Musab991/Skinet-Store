@@ -1,0 +1,45 @@
+<div class="mt-4 w-full px-4">
+  <h4 class="text-2xl font-semibold text-gray-800 mb-4">Billing and Delivery Information</h4>
+
+  <!-- Shipping and Payment Information Section -->
+  <div class="bg-white shadow-sm rounded-lg p-6 mb-6">
+    <dl class="space-y-4">
+      <div>
+        <dt class="font-medium text-gray-700">Shipping Address</dt>
+        <dd class="text-gray-500">{{confirmationToken?.shipping | address}}</dd>
+      </div>
+      <div>
+        <dt class="font-medium text-gray-700">Payment Details</dt>
+        <dd class="text-gray-500">{{confirmationToken?.payment_method_preview|card}}</dd>
+      </div>
+    </dl>
+  </div>
+
+  <!-- Cart Items Table -->
+  <div class="bg-white shadow-sm rounded-lg p-6">
+    <div class="border-b border-gray-200">
+      <table class="w-full table-auto">
+        <thead>
+          <tr class="text-left text-sm font-medium text-gray-600">
+            <th class="py-3 px-4">Product</th>
+            <th class="py-3 px-4">Quantity</th>
+            <th class="py-3 px-4 text-right">Price</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr *ngFor="let item of cartService.cart()?.items; trackBy: trackByProductId">
+            <td class="py-4 px-4">
+              <div class="flex items-center gap-4">
+                <img [src]="item.pictureUrl" alt="product image" class="w-12 h-12 rounded-md">
+                <a [routerLink]="['/shop', item.productId]"
+                  class="text-gray-800 hover:text-blue-600 font-semibold">{{item.productName}}</a>
+              </div>
+            </td>
+            <td class="py-4 px-4 text-center">x{{item.quantity}}</td>
+            <td class="py-4 px-4 text-right">{{item.price | currency}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

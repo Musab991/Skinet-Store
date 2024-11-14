@@ -5,6 +5,7 @@ import { Cart } from '../../models/cart';
 import { CartItem } from '../../models/cart';
 import { Product } from '../../models/product';
 import { map, Observable } from 'rxjs';
+import { DeliveryMethod } from '../../models/deliveryMethod';
 @Injectable({
   providedIn: 'root',
 })
@@ -12,28 +13,41 @@ export class CartService {
   baseUrl = environment.apiUrl;
   private http = inject(HttpClient);
   cart = signal<Cart | null>(null);
-  itemCount = computed(() => {
-    if (!this.cart()) return;
+  selectedDelivery = signal<DeliveryMethod | null>(null);
 
-    return this.cart()?.items.reduce((sum, item) => sum + item.quantity, 0);
+  itemCount = computed(() => {
+    if (!this.cart()) return 0; // Default to 0 if cart is null
+    return (
+      this.cart()?.items.reduce((sum, item) => sum + item.quantity, 0) || 0
+    );
   });
+
   totals = computed(() => {
-    if (!this.cart()) return;
+    if (!this.cart()) return null; // Return null if no cart
+
     const cart = this.cart();
+    const delivery = this.selectedDelivery(); // Fetch the selected delivery method
     if (!cart) return null;
-    const subtotal = this.cart()?.items.reduce(
+
+    // Calculate subtotal (sum of item prices * quantities)
+    const subtotal = cart.items.reduce(
       (total, item) => total + item.quantity * item.price,
       0
     );
-    const shipping = 0;
-    const discount = 0;
+    // Use the selected delivery method's price if available, otherwise default to 0
+    const shipping = delivery?.price || 0;
+
+    // You can apply discounts here if applicable
+    const discount = 0; // This can be modified to include dynamic discount logic
+
     return {
       subtotal,
       shipping,
       discount,
-      total: subtotal ?? 0 + shipping - discount,
+      total: (subtotal ?? 0) + (shipping ?? 0) - discount, // Calculate total
     };
   });
+
   getCart(id: string): Observable<Cart> {
     return this.http.get<Cart>(this.baseUrl + 'cart?id=' + id).pipe(
       map((cart) => {

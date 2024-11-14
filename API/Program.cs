@@ -11,9 +11,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 
-
-
-
 // Add services to the container.
 builder.Services.AddControllers();
 
@@ -43,6 +40,7 @@ builder.Services.AddIdentityApiEndpoints<AppUser>()
     .AddEntityFrameworkStores<StoreContext>();
 
 builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
 var app = builder.Build();
