@@ -1,3 +1,4 @@
+using API.Extensions;
 using API.Middleware;
 using Core.Entities;
 using Core.Interfaces;
@@ -6,6 +7,7 @@ using Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +26,6 @@ builder.Services.AddDbContext<StoreContext>(opt =>
 });
 
 builder.Services.AddScoped<IProductReposoitory, ProductRepository>();
-builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
 builder.Services.AddCors();
 builder.Services.AddSingleton<IConnectionMultiplexer>(config =>
 {
@@ -40,8 +41,7 @@ builder.Services.AddIdentityApiEndpoints<AppUser>()
     .AddEntityFrameworkStores<StoreContext>();
 
 builder.Services.AddScoped<IPaymentService, PaymentService>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+builder.Services.AddRepositories(Assembly.GetExecutingAssembly());
 
 var app = builder.Build();
 

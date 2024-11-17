@@ -1,3 +1,6 @@
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\appsettings.json
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\API.exe
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\API.deps.json
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\API.runtimeconfig.json
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\API.dll
@@ -5,6 +8,9 @@ C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Azure.Identity.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Humanizer.dll
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -20,6 +26,8 @@ C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
@@ -34,6 +42,10 @@ C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\StackExchange.Redis.dll
+C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Stripe.net.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -133,15 +145,3 @@ C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\obj\Debug\net8.
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\obj\Debug\net8.0\API.pdb
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\obj\Debug\net8.0\ref\API.dll
-C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
-C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\StackExchange.Redis.dll
-C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
-C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
-C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\appsettings.json
-C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\API.exe
-C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Newtonsoft.Json.dll
-C:\Users\XIGMATEK\Documents\.netCoreAndAngularPorject\skinet\API\bin\Debug\net8.0\Stripe.net.dll
