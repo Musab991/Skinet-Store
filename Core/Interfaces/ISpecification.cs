@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using System.Net;
 
 namespace Core.Interfaces
 {
@@ -8,7 +9,11 @@ namespace Core.Interfaces
         Expression<Func<T,bool>> ?Criteria { get; }
         Expression<Func<T, object>>? OrderBy { get; }
         Expression<Func<T, object>>? OrderByDescending { get; }
-        
+
+        List<Expression<Func<T, Object>>> Includes {  get; }
+
+        List<string>IncludeStrings { get; }//For ThenInclude
+
         int Take{ get; }
         int Skip { get; }
 

@@ -36,11 +36,24 @@ namespace Core.Specifications
 
         public bool IsPagingEnabled { get;private set; }
 
-         protected void AddOrderBy(Expression<Func<T, object>> orderByExpression)
+        public List<Expression<Func<T, object>>> Includes { get; private set; } = [];
+
+        public List<string> IncludeStrings { get; private set; } = [];
+
+        protected void AddOrderBy(Expression<Func<T, object>> orderByExpression)
         { 
         
             OrderBy= orderByExpression;
 
+        }
+
+        protected void AddInclude(Expression<Func<T, object>> includeExpression)
+        {
+            Includes.Add(includeExpression);
+        }
+        protected void AddInclude(string includeString)
+        {
+            IncludeStrings.Add(includeString);//for then include 
         }
         protected void AddOrderByDescending(Expression<Func<T, object>> orderByDescExpression)
         {
@@ -60,7 +73,6 @@ namespace Core.Specifications
         {
             IsDistinct = true;
         }
-
         public IQueryable<T> ApplyCriteria(IQueryable<T> query)
         {
             if (criteria != null)
