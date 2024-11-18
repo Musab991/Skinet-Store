@@ -42,5 +42,28 @@ namespace API.Extensions
         }
 
     }
+
+    public static class ClaimsPrincipalExtensionsv2
+    {
+        public static string GetUserId(this ClaimsPrincipal user)
+        {
+            return user.FindFirst("Id")?.Value;
+        }
+
+        public static string GetCountry(this ClaimsPrincipal user)
+        {
+            return user.FindFirst("Country")?.Value;
+        }
+
+        public static int GetAge(this ClaimsPrincipal user)
+        {
+            return int.TryParse(user.FindFirst("Age")?.Value, out var age) ? age : 0;
+        }
+
+        public static string GetEditRole(this ClaimsPrincipal user)
+        {
+            return user.FindFirst("EditRole")?.Value;
+        }
+    }
 }
 

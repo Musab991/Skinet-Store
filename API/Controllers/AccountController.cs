@@ -1,6 +1,7 @@
 ﻿using API.DTOs;
 using API.Extensions;
 using Core.Entities;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -41,6 +42,40 @@ public class AccountController(SignInManager<AppUser> signInManager): BaseApiCon
 
         return Ok();
 
+    }
+
+    [AllowAnonymous]
+    [HttpPost("login")]
+    public async Task<ActionResult> Login(LoginDto loginDto)
+    {
+        var user = await signInManager.UserManager.FindByEmailAsync(loginDto.Email);
+        if (user == null)
+        {
+            return Unauthorized("Invalid credentials.");
+        }
+
+        var result = await signInManager.PasswordSignInAsync(user, loginDto.Password, isPersistent: false, lockoutOnFailure: false);
+        if (!result.Succeeded)
+        {
+            return Unauthorized("Invalid credentials.");
+        }
+
+        // Add claims to the user for the session
+        var claims = new List<Claim>
+    {
+        new Claim("Id", user.Id),
+        new Claim("Country", user.Address?.Country ?? "DefaultCountry"), 
+        new Claim("Age", 26.ToString()),
+        new Claim("EditRole",  "EditRole")
+    };
+
+        var claimsIdentity = new ClaimsIdentity(claims, "Cookies");
+        var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+ 
+        // Replace existing authentication with new claims (re-sign in user)
+        await HttpContext.SignInAsync("Cookies", claimsPrincipal);
+
+        return Ok("Logged in successfully.");
     }
     [AllowAnonymous]
     [HttpPost("logout")]
